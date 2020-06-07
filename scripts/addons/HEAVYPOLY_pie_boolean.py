@@ -1,5 +1,5 @@
 bl_info = {
-    "name": "HP Boolean Pie",
+    "name": "Pie Boolean",
     "description": "",
     "author": "Vaughan Ling",
     "version": (0, 1, 0),
@@ -7,7 +7,7 @@ bl_info = {
     "location": "",
     "warning": "",
     "wiki_url": "",
-    "category": "Pie Menu"
+    "category": "Heavypoly"
     }
 
 import bpy

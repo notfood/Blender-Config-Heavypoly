@@ -1,6 +1,6 @@
 
 bl_info = {
-	"name": "Border Select Through",
+	"name": "Pie Border Select Through",
 	"description": "Border Select through a mesh",
 	"author": ("Vaughan Ling"),
 	"version": (0, 1, 0),
@@ -8,7 +8,7 @@ bl_info = {
 	"location": "",
 	"warning": "",
 	"wiki_url": "",
-	"category": "Pie Menu"
+	"category": "Heavypoly"
 	}
 	
 import bpy

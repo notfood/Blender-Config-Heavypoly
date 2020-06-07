@@ -1,5 +1,5 @@
 bl_info = {
-    "name": "Heavypoly Hotkeys",
+    "name": "Hotkeys",
     "description": "Hotkeys",
     "author": "Vaughan Ling",
     "version": (0, 1, 0),
@@ -7,7 +7,7 @@ bl_info = {
     "location": "",
     "warning": "",
     "wiki_url": "",
-    "category": "Hotkeys"
+    "category": "Heavypoly"
     }
 
 import bpy

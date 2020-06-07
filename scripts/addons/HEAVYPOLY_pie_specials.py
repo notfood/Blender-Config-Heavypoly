@@ -3,11 +3,11 @@ bl_info = {
     "description": "Specials Modes",
     "author": "Vaughan Ling",
     "version": (0, 1, 0),
-    "blender": (2, 78, 0),
+    "blender": (2, 80, 0),
     "location": "",
     "warning": "",
     "wiki_url": "",
-    "category": "Pie Menu"
+    "category": "Heavypoly"
     }
 
 import bpy

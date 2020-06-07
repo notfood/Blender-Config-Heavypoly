@@ -1,3 +1,11 @@
+bl_info = {
+    "category": "Heavypoly",
+    "name": "Panel Properties",
+    "author": "Vaughan Ling",
+    "version": (0, 1, 0),
+    "blender": (2, 80, 0),
+    }
+
 import bpy
 import random
 from bpy.props import *

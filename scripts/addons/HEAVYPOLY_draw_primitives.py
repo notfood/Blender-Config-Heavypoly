@@ -1,5 +1,6 @@
 bl_info = {
-    "name": "HP Draw Primitives",
+    "category": "Heavypoly",
+    "name": "Draw Primitives",
     "author": "Vaughan Ling",
     "version": (0, 1, 0),
     "blender": (2, 80, 0),
