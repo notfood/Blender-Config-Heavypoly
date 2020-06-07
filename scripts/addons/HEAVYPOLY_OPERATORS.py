@@ -1,5 +1,5 @@
 bl_info = {
-    "name": "Heavypoly Operators",
+    "name": "Operators",
     "description": "Operators that make for smooth blending",
     "author": "Vaughan Ling",
     "version": (0, 1, 0),
@@ -7,7 +7,7 @@ bl_info = {
     "location": "",
     "warning": "",
     "wiki_url": "",
-    "category": "Operators"
+    "category": "Heavypoly"
     }
 
 import bpy

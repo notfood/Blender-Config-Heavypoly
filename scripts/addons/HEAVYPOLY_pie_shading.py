@@ -7,7 +7,7 @@ bl_info = {
     "location": "",
     "warning": "",
     "wiki_url": "",
-    "category": "Pie Menu"
+    "category": "Heavypoly"
     }
 
 import bpy

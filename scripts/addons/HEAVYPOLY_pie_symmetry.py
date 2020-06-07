@@ -3,7 +3,7 @@ bl_info = {
     "description": "Symmetry and Mirroring",
     "author": "Vaughan Ling",
     "blender": (2, 80, 0),
-    "category": "Pie Menu"
+    "category": "Heavypoly"
     }
 
 import bpy

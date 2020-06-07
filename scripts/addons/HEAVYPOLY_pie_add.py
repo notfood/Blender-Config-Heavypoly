@@ -1,4 +1,5 @@
 bl_info = {
+    "category": "Heavypoly",
     "name": "Pie Add",
     "description": "",
     "author": "Vaughan Ling",
@@ -7,7 +8,6 @@ bl_info = {
     "location": "",
     "warning": "",
     "wiki_url": "",
-    "category": "Pie Menu"
     }
 
 import bpy

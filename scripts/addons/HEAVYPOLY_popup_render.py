@@ -1,14 +1,26 @@
+bl_info = {
+    "category": "Heavypoly",
+    "name": "Popup Render",
+    "author": "Vaughan Ling",
+    "version": (0, 1, 0),
+    "blender": (2, 80, 0),
+    }
+
 import bpy
 import random
 from bpy.props import *
 from bpy_extras.node_utils import find_node_input
 
-class HP_PT_render(bpy.types.Panel):
-    bl_label = "HEAVYPOLY RENDER"
-    bl_space_type = 'PROPERTIES'
-    bl_region_type = 'WINDOW'
-    bl_context = "render"
-
+class HP_MT_popup_render(bpy.types.Operator):
+    bl_idname = "popup.hp_render" 
+    bl_label = "Heavypoly Render Popup"
+    def execute(self, context):
+        return {'FINISHED'}
+ 
+    def invoke(self, context, event):
+        wm = context.window_manager
+        return wm.invoke_popup(self, width=450)
+        
     def draw(self, context):
         layout = self.layout
         row = layout.row()
@@ -36,26 +48,23 @@ class HP_PT_render(bpy.types.Panel):
         row.prop(scene, "frame_step", text="F Step")
         col.separator()
         row = col.row()
+        row.operator('render.opengl',text='R View')
+        row.operator('render.render',text='R Cam')
+        row = col.row()
+        row.operator('render.opengl',text='R View Anim').animation=True
+        row.operator('render.render',text='R Cam Anim').animation=True
+        col.separator()
 
 #           col.prop(world, "use_nodes", icon='NODETREE')
 
         col.label(text='WORLD')
         world = bpy.context.scene.world
         col.prop(scene.eevee, "use_soft_shadows")
-
-        # worldnodes = world.node_tree.nodes
-        # actnode = worldnodes.active
-        # col.prop(actnode, 'type', text='')
-        # for node in worldnodes:
-            # for input in node.inputs:
-                # col.prop(input, 'default_value', text = input.name)
-        # # for x in actnode.inputs:
-            # # if x.name != 'Normal' and x.name != 'Clearcoat Normal' and x.name != 'Tangent':
-                # # col2.prop(x,'default_value', text = x.name
-
         if world.use_nodes:
             ntree = world.node_tree
             node = ntree.get_output_node('EEVEE')
+
+        
         
             if node:
                 input = find_node_input(node, 'Surface')
@@ -65,7 +74,7 @@ class HP_PT_render(bpy.types.Panel):
                 if input:
                     col.separator()
                     col.separator()
-                    # col.prop(scene.eevee, "use_volumetric", text="Use Volumetric")
+                    col.prop(scene.eevee, "use_volumetric", text="Use Volumetric")
                     col.template_node_view(ntree, node, inputvol)
                 else:
                     col.label(text="Incompatible output node")
@@ -91,13 +100,12 @@ class HP_PT_render(bpy.types.Panel):
 
       
         col2.label(text='RENDER SETTINGS')
+        col2.prop(scene.render, "engine",text='')
         col2.prop(scene.view_settings, 'view_transform', text='')
         col2.prop(scene.view_settings, 'look', text='')
-        col2.template_curve_mapping(scene.view_settings, "curve_mapping", type='COLOR', levels=True)
+        col2.template_curve_mapping(scene.view_settings, "curve_mapping", levels=True)
         col2.prop(image_settings, "file_format", text = '')
-        row = col2.row()
-        row.prop(image_settings, "compression")
-        row.prop(rd, "use_overwrite")
+        col2.prop(image_settings, "compression")
         row = col2.row()
         row.scale_x=.5
         if image_settings.file_format == 'FFMPEG':
@@ -112,18 +120,18 @@ class HP_PT_render(bpy.types.Panel):
             row.scale_x=.2
             row.prop(image_settings, "col_depth", expand = True)
         col2.prop(rd, "filepath", text="")
+        col2.prop(rd, "use_overwrite")
 #       col.prop(rd, "use_placeholder")
 
 #       col.prop(rd, "use_file_extension")
 #       col.prop(rd, "use_render_cache")
         ffmpeg = rd.ffmpeg
-        row = col.row()
-        row.prop(props, "taa_samples")
-        row.prop(props, "taa_render_samples")
-        #row.prop(props, "use_taa_reprojection")
+        col2.prop(props, "taa_samples")
+        col2.prop(props, "taa_render_samples")
+        col2.prop(props, "use_taa_reprojection")
 
 classes = (
-    HP_PT_render,
+    HP_MT_popup_render,
 
 )
 register, unregister = bpy.utils.register_classes_factory(classes)

@@ -7,7 +7,7 @@ bl_info = {
     "location": "3D View",
     "warning": "",
     "wiki_url": "",
-    "category": "Pivots Pie"
+    "category": "Heavypoly"
     }
 
 import bpy

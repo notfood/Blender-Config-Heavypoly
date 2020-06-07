@@ -6,7 +6,7 @@ bl_info = {
 	"blender": (2, 80, 0),
 	"location": "",
 	"warning": "",
-	"category": "Pie Menu"
+	"category": "Heavypoly"
 	}
 
 import bpy
